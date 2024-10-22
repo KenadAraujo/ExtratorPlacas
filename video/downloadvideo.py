@@ -29,10 +29,14 @@ class DownloadVideo:
         return f"{self.output_path}/{filename}"
     
     def save_frame(self, frame, frame_count):
-        cv2.imwrite(f"assets/frames_detected/frame_{frame_count:04d}.jpg", frame)
+        dir = "assets/frames_detected"
+        self._verify_path(dir)
+        cv2.imwrite(f"{dir}/frame_{frame_count:04d}.jpg", frame)
     
     def save_plate(self, frame, frame_count,plate_count):
-        cv2.imwrite(f"assets/plates_detected/frame_{frame_count:04d}_{plate_count:04d}.jpg", frame)
+        dir = "assets/plates_detected"
+        self._verify_path(dir)
+        cv2.imwrite(f"{dir}/frame_{frame_count:04d}_{plate_count:04d}.jpg", frame)
         
     def get_video(self, path):
         video = cv2.VideoCapture(path)
@@ -41,3 +45,7 @@ class DownloadVideo:
             return None
         fps = video.get(cv2.CAP_PROP_FPS)
         return video, fps
+    
+    def _verify_path(self, path):
+        if not os.path.exists(path):
+            os.makedirs(path)
