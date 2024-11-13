@@ -8,6 +8,12 @@
     - R: 92,1%
 
 ## SAFEIA - MODELO CARACTERES
+* [v15 - YOLOv8](safeia.caracteres.v15.pt)
+    - mAP50: 96,82%
+    - mAP50-95: 69,08%
+    - P: 93,74%
+    - R: 93,50%
+    
 * [v14 - YOLOv8](safeia.caracteres.v14.pt)
     - mAP50: 95,94%
     - mAP50-95: 70,04%
