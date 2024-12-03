@@ -9,5 +9,5 @@ if __name__=="__main__":
         path = video.generate_path(vi)
         recording,fps = video.get_video(path)
 
-        ia = DetectObject("safeia.geral.v9.pt")
+        ia = DetectObject("safeia.geral.v10.pt","safeia.caracteres.v19.pt")
         plates = ia.extract_plate(video.save_frame, video.save_plate,recording)
